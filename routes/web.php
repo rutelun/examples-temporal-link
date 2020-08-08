@@ -18,4 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('temporal-links/{link:link}', [TemporalLinkController::class, 'get']);
+Route::get('temporal-links/{link:link}', [TemporalLinkController::class, 'get'])->name('link');
+
+Route::get('secret', function () {
+    return 'test';
+})->name('secret');
