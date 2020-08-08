@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TemporalLinkController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('auth/{user_id}', function (\Illuminate\Routing\Route $route) {
+    Auth::login(\App\User::query()->find($route->parameters()['user_id']));
+});
+
 Route::get('temporal-links/{link:link}', [TemporalLinkController::class, 'get'])->name('link');
 
 Route::get('secret', function () {
     return 'test';
-})->name('secret');
+})->name('secret')
+->middleware('verify_user_link');

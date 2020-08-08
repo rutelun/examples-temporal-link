@@ -93,7 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                    <a href="{{ temp_route('secret') }}">Secret</a>
+                    <a href="{{ user_route('secret') }}">Secret</a>
                 </div>
             </div>
         </div>
